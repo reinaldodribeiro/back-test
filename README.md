@@ -44,8 +44,12 @@ Neste projeto foi desenvolvido uma API Rest como solicitado, optei pelo framewor
 ## Configuração Inicial:
 Após clonar o projeto é necessário realizar algumas configurações:
 
-- 1º: É necessário criar um banco de dados. O nome para o mesmo fica a critério, pois a conexão é configurada no arquivo ".env". Aqui em minha máquina criei um database com nome "workflow_db".
-- 2º: Criar um arquivo de configuração na raiz do projeto com o nome ".env", e utilizar como base o arquivo ".env_example", e configurar as variaveis de conexão com banco de dados.
+- 1º: Rodar o seguinte comando:
+```
+composer install
+````
+- 2º: É necessário criar um banco de dados. O nome para o mesmo fica a critério, pois a conexão é configurada no arquivo ".env". Aqui em minha máquina criei um database com nome "workflow_db".
+- 3º: Criar um arquivo de configuração na raiz do projeto com o nome ".env", e utilizar como base o arquivo ".env_example", e configurar as variaveis de conexão com banco de dados.
  
  ```
  DB_CONNECTION=pgsql
@@ -56,15 +60,15 @@ Após clonar o projeto é necessário realizar algumas configurações:
  DB_PASSWORD=postgres
 ````
 
-- 3º Feito isso, é necessário criar a estrutura do banco de dados. Para isso criei uma migration que já faz isso, então execute o seguinte comando:
+- 4º Feito isso, é necessário criar a estrutura do banco de dados. Para isso criei uma migration que já faz isso, então execute o seguinte comando:
 ```
 php artisan migrate
 ````
-- 4º Siga o passo a passo para a instalação do RabbitMQ no site do https://www.rabbitmq.com/, caso prefire pode utilizar o docker para fazer uso do Rabbit.
+- 5º Siga o passo a passo para a instalação do RabbitMQ no site do https://www.rabbitmq.com/, caso prefire pode utilizar o docker para fazer uso do Rabbit.
 ```
 docker run -d --hostname rabbitserver --name rabbitmq-server -p 15672:15672 -p 5672:5672 rabbitmq:3-management
 ````
-- 5º Para rodar o projeto back-end basta rodar o seguinte comando na pasta do projeto:
+- 6º Para rodar o projeto back-end basta rodar o seguinte comando na pasta do projeto:
 ```
 php artisan serve
 ```` 
@@ -92,36 +96,40 @@ Neste endpoint é possível cadastrar um novo workflow e adiciona-lo a fila do r
         ]
     }
 ````
-![Alt text](https://github.com/matheuslimat/backend-test/blob/matheuslima/src/main/resources/templates/image/POSTandProducer.png)
+![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/POSTWorkflow.PNG)
+
+![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/PostgresSAVE.PNG)
+
+![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/RabbitQueue.PNG)
+
+![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/RabbitMessages.PNG)
 
 ### PATCH /workflow/{uuid}
 http://127.0.0.1:8000/api/v1/workflow/f97af4d3-867b-44d7-afd9-2384df4f9109
 
 No patch, optei por não ter que passar nada no body, somente mandar a requisição passando o uuid do workflow desejado e já realiza a alteração do status e retorna os dados daquele workflow.
 
-![Alt text](https://github.com/matheuslimat/backend-test/blob/matheuslima/src/main/resources/templates/image/PATCH.png)
-
+![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/PATCHWorkflow.PNG)
 ### GET /workflow
 
 http://127.0.0.1:8000/api/v1/workflow
 
 Lista todos os WorkFlows do banco de dados.
 
-![Alt text](https://github.com/matheuslimat/backend-test/blob/matheuslima/src/main/resources/templates/image/GET.png)
+![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/GETWorkflows.PNG)
 
 ### GET /workflow/consume
 
-http://127.0.0.1:8000/api/v1/consume
+http://127.0.0.1:8000/api/v1/workflow/consume
 
 Consome todas as mensagens pendentes estão na fila, e gera um CSV com os dados do WorkFlow.
 OBS: O csv é gerado na pasta raiz do projeto, e o nome dados é no formato 'd-m-Y H'.csv
 
-![Alt text](https://github.com/matheuslimat/backend-test/blob/matheuslima/src/main/resources/templates/image/GETandConsumer.png)
+![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/RabbitConsume.PNG)
 
-![Alt text](https://github.com/matheuslimat/backend-test/blob/matheuslima/src/main/resources/templates/image/CSVWorkFlow.png)
+![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/FileCsvCreated.PNG)
 
-![Alt text](https://github.com/matheuslimat/backend-test/blob/matheuslima/src/main/resources/templates/image/CSVWorkFlow2.png)
-
+![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/FileCsvOpen.PNG)
 
 
 
