@@ -105,7 +105,7 @@ Neste endpoint é possível cadastrar um novo workflow e adiciona-lo a fila do r
 ![Alt text](https://raw.githubusercontent.com/reinaldodribeiro/back-test/master/public/images/RabbitMessages.PNG)
 
 ### PATCH /workflow/{uuid}
-http://127.0.0.1:8000/api/v1/workflow/f97af4d3-867b-44d7-afd9-2384df4f9109
+http://127.0.0.1:8000/api/v1/workflow/b294f589-a0e5-46e2-ba33-c7ecba9cf927
 
 No patch, optei por não ter que passar nada no body, somente mandar a requisição passando o uuid do workflow desejado e já realiza a alteração do status e retorna os dados daquele workflow.
 
