@@ -1,0 +1,4 @@
+DATA;STEPS
+{"Story":"CRUD Workflow","User":"Reinaldo"};[Create story,Detail story,Assign User,Develop,Finish Story]
+{"Story":"Update Status Workflow","User":"Reinaldo"};[Create story,Detail story,Assign User,Develop,Finish Story]
+{"Story":"Consume Queue Workflow","User":"Reinaldo"};[Create story,Detail story,Assign User,Develop,Finish Story]
