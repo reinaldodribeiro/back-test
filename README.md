@@ -135,3 +135,5 @@ OBS: O csv é gerado na pasta raiz do projeto, e o nome dados é no formato 'd-m
 ### Considerações
 
 Foi muito gratificante poder participar deste desafio ! Obrigado Nuveo Team pela oportunidade, até breve !
+
+Uma vida sem desafios não vale a pena ser vivida. (Sócrates)
