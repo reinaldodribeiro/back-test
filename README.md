@@ -32,7 +32,7 @@ Clone this project and push a private repository in the [GitHub](https://github.
 
 ## Reinaldo D. Ribeiro
 
-Neste projeto foi desenvolvido uma API Rest como solicitado, optei pelo framework Laravel/PHP para o desenvolvimento, e para o mensageiro utilizei o RabbitMQ.
+Neste projeto foi desenvolvido uma API Rest de acordo com o que foi solicitado, optei pelo framework Laravel/PHP para o desenvolvimento, e para o mensageiro utilizei o RabbitMQ.
 
 ## Requisitos para rodar o projeto
 
@@ -96,27 +96,27 @@ Neste endpoint é possível cadastrar um novo workflow e adiciona-lo a fila do r
         ]
     }
 ````
-![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/POSTWorkflow.PNG)
+![Alt text](https://raw.githubusercontent.com/reinaldodribeiro/back-test/master/public/images/POSTWorkflow.PNG)
 
-![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/PostgresSAVE.PNG)
+![Alt text](https://raw.githubusercontent.com/reinaldodribeiro/back-test/master/public/images/PostgresSAVE.PNG)
 
-![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/RabbitQueue.PNG)
+![Alt text](https://raw.githubusercontent.com/reinaldodribeiro/back-test/master/public/images/RabbitQueue.PNG)
 
-![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/RabbitMessages.PNG)
+![Alt text](https://raw.githubusercontent.com/reinaldodribeiro/back-test/master/public/images/RabbitMessages.PNG)
 
 ### PATCH /workflow/{uuid}
 http://127.0.0.1:8000/api/v1/workflow/f97af4d3-867b-44d7-afd9-2384df4f9109
 
 No patch, optei por não ter que passar nada no body, somente mandar a requisição passando o uuid do workflow desejado e já realiza a alteração do status e retorna os dados daquele workflow.
 
-![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/PATCHWorkflow.PNG)
+![Alt text](https://raw.githubusercontent.com/reinaldodribeiro/back-test/master/public/images/PATCHWorkflow.PNG)
 ### GET /workflow
 
 http://127.0.0.1:8000/api/v1/workflow
 
 Lista todos os WorkFlows do banco de dados.
 
-![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/GETWorkflows.PNG)
+![Alt text](https://raw.githubusercontent.com/reinaldodribeiro/back-test/master/public/images/GETWorkflows.PNG)
 
 ### GET /workflow/consume
 
@@ -125,11 +125,13 @@ http://127.0.0.1:8000/api/v1/workflow/consume
 Consome todas as mensagens pendentes estão na fila, e gera um CSV com os dados do WorkFlow.
 OBS: O csv é gerado na pasta raiz do projeto, e o nome dados é no formato 'd-m-Y H'.csv
 
-![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/RabbitConsume.PNG)
+![Alt text](https://raw.githubusercontent.com/reinaldodribeiro/back-test/master/public/images/RabbitConsume.PNG)
 
-![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/FileCsvCreated.PNG)
+![Alt text](https://raw.githubusercontent.com/reinaldodribeiro/back-test/master/public/images/FileCsvCreated.PNG)
 
-![Alt text](https://github.com/reinaldodribeiro/back-test/tree/master/public/images/FileCsvOpen.PNG)
+![Alt text](https://raw.githubusercontent.com/reinaldodribeiro/back-test/master/public/images/FileCsvOpen.PNG)
 
 
+### Considerações
 
+Foi muito gratificante poder participar deste desafio ! Obrigado Nuveo Team pela oportunidade, até breve !
